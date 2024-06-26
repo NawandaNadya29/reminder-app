@@ -1,0 +1,109 @@
+.signin-container {
+    background-color: #E7D0D0; /* Contoh warna latar belakang putih */
+    height: 100vh;
+}
+  
+.form-container {
+    max-width: 24rem;
+    margin: 2rem auto;
+    
+}
+.logo-container {
+    display: flex;
+    align-items: center; /* Mengatur posisi horizontal ke tengah */
+    justify-content: center; /* Mengatur posisi vertikal ke tengah */
+}
+  
+.logo-image {
+    width: 200px; /* Atur lebar gambar */
+    height: auto; /* Tinggi akan disesuaikan secara otomatis */
+    margin-top: 100px;
+}  
+
+.title-1{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #000000;
+  }
+  .title-2{
+    text-align: center;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold
+  }
+
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+  
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #000000;
+}
+  
+.form-input {
+    margin-top: 0.25rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.9rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    outline: none;
+    font-size: 0.875rem;
+}
+  
+.form-input:focus {
+    border-color: #6366f1;
+}
+  
+.error-message {
+    color: #f56565;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}  
+
+.submit-button {
+    width: 100%;
+    background-color: #D38181; /* Indigo background */
+    color: #ededed; /* White text */
+    padding: 0.5rem 1rem;
+    border-radius: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    margin-top: 5px;
+}
+  
+.redirect-message {
+    margin-top: 2px;
+    font-size: 0.875rem; /* Small text */
+    color: #000000; 
+    text-align: center;
+}
+  
+.redirect-link {
+    color: #E83E3E;
+    cursor: pointer;
+    text-align: center;
+}
+
+.forgot-password-link{
+    margin-top: 2px;
+    font-size: 0.875rem; /* Small text */
+    color: #E83E3E;
+    text-align: right;
+}
+
+.toggle-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6b5757; /* Sesuaikan warna ikon dengan desain Anda */
+  }

@@ -1,0 +1,106 @@
+.forgot-password-container {
+    background-color: #E7D0D0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.9rem;
+    font-size: 0.875rem;
+    outline: none;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+  
+  .form-input:focus {
+    border-color: #6366f1;
+  }
+  
+.submit-button {
+    width: 100%;
+    background-color: #D38181;
+    color: #ededed;
+    padding: 0.5rem 1rem;
+    border-radius: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    margin-top: 1rem;
+}
+  
+  .submit-button:hover {
+    background-color: #C56D6D;
+  }
+  
+  .error-message {
+    color: #f56565;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .forgot-password-form {
+      padding: 1rem;
+    }
+  }
+.title-1{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #000000;
+    font-weight: bold
+}
+.title-2{
+    text-align: center;
+    color: #000000;
+    font-size: 70%;
+}
+
+
+.redirect-message {
+    margin-top: 2px;
+    font-size: 0.875rem; /* Small text */
+    color: #000000; 
+    text-align: center;
+}
+  
+.redirect-link {
+    color: #E83E3E;
+    cursor: pointer;
+    text-align: center;
+}
+
+.popup {
+    position: absolute;
+    top: 50%; /* Atur posisi vertikal di tengah */
+    left: 50%; /* Atur posisi horizontal di tengah */
+    transform: translate(-50%, -50%); /* Pusatkan pop-up */
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999; /* Menentukan pop-up muncul di atas konten lain */
+    text-align: center; /* Pusatkan teks */
+  }
+  
+  .popup-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .popup-button:hover {
+    background-color: #4f46e5;
+  }
