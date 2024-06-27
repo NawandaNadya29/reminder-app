@@ -20,7 +20,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (user) {
-      router.push('/components'); // Redirect to home page after successful sign-in
+      router.push('/todos'); // Redirect to home page after successful sign-in
     }
   }, [user, router]);
 

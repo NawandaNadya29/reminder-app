@@ -1,0 +1,118 @@
+/* todo-list.css */
+
+.container {
+  background-color: #f0f0f0;
+  height: 100vh;
+  width: auto;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.logogambar {
+  width: 150px;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.logout-btn:hover {
+  background-color: #0056b3;
+}
+
+.completed-btn-container {
+  margin-bottom: 20px;
+}
+
+.completed-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.completed-btn:hover {
+  background-color: #218838;
+}
+
+.tasks-list {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.task-desc {
+  font-size: 1rem;
+  color: #666;
+}
+
+.task-actions {
+  display: flex;
+}
+
+.task-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #333;
+  margin-left: 10px;
+}
+
+.task-actions button:hover {
+  color: #007bff;
+}
+
+.add-btn-container {
+  margin-top: 20px;
+}
+
+.add-btn {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
