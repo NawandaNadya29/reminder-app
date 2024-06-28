@@ -37,7 +37,7 @@ const TodoList = () => {
     
   const handleComplete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+      const res = await fetch(`/api/topics/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
