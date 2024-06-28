@@ -15,7 +15,7 @@ const TodoList = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/topics');
+        const res = await fetch('/api/topics');
         if (res.ok) {
           const data = await res.json();
           setTasks(data.topics); // Update tasks state with fetched data from MongoDB
@@ -31,61 +31,44 @@ const TodoList = () => {
   }, []);
   
 
-  const handleEdit = (id) => {
-    router.push(`/editTopic?id=${id}`); 
-  };
+  // const handleEdit = (_id) => {
+  //   router.push(`/editTopic?id=${_id}`); 
+  // };
     
-  const handleComplete = async (id) => {
-    try {
-      const res = await fetch(`/api/topics/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ completed: true }), // Example: Sending task status as completed
-      });
+  // const handleComplete = async (id) => {
+  //   try {
+  //     const res = await fetch(`/api/topics/${id}`, {
+  //       method: 'PUT',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ completed: true }), // Example: Sending task status as completed
+  //     });
 
-      if (res.ok) {
-        console.log(`Task ${id} marked as completed.`);
-        fetchTasks(); // Reload tasks after successfully marking as completed
-      } else {
-        throw new Error('Failed to mark task as completed.');
-      }
-    } catch (error) {
-      console.error('Error marking task as completed:', error);
-    }
-  };
+  //     if (res.ok) {
+  //       console.log(`Task ${_id} marked as completed.`);
+  //       fetchTasks(); // Reload tasks after successfully marking as completed
+  //     } else {
+  //       throw new Error('Failed to mark task as completed.');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error marking task as completed:', error);
+  //   }
+  // };
   
 
   const handleAdd = () => {
-    router.push('/addtopics'); // Navigate to '/addtopics' page when Add button is clicked
+    router.push('/addtopics'); 
   };
 
   const handleLogout = async () => {
     try {
       await auth.signOut();
-      router.push('/signin'); // Redirect to sign-in page after logout
     } catch (error) {
       console.error('Error logging out: ', error);
     }
   };
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
-  //       method: 'DELETE',
-  //     });
-
-  //     if (res.ok) {
-  //       // Remove the deleted task from the state
-  //       setTasks(tasks.filter(task => task._id !== id));
-  //     } else {
-  //       throw new Error('Failed to delete task');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error deleting task: ', error);
-  //   }
-  // };
 
   return (
     <div className="container">
