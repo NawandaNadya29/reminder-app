@@ -16,7 +16,7 @@ const EditTaskPage = () => {
  useEffect(() => {
   const fetchTask = async () => {
    try {
-    const res = await fetch(`/api/topics/${taskId}`);
+    const res = await fetch(`/api/topics/${_Id}`);
     if (res.ok) {
      const data = await res.json();
      setTitle(data.title);
