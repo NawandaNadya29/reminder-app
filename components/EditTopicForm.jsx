@@ -1,72 +1,105 @@
 
 'use client'
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import '@/app/editTopic/edit.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-const EditTopicForm = ({ id, title, description}) => {
-  const [newTitle, setNewTitle] = useState(title);
-  const [newDescription, setNewDescription] = useState(description);
-  const router = useRouter();
+const EditTaskPage = () => {
+ const [title, setTitle] = useState('');
+ const [description, setDescription] = useState('');
+ const router = useRouter();
+ const searchParams = useSearchParams();
+ const taskId = searchParams.get('id');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({ newTitle, newDescription }),
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to update topic');
-      }
-
-      router.push('/todos'); // Redirect to the todos page after successful update
-    } catch (error) {
-      console.error('Error updating topic:', error);
+ useEffect(() => {
+  const fetchTask = async () => {
+   try {
+    const res = await fetch(`http://localhost:3000/api/topics/${taskId}`);
+    if (res.ok) {
+     const data = await res.json();
+     setTitle(data.title);
+     setDescription(data.description);
+    } else {
+     throw new Error('Failed to fetch task');
     }
+   } catch (error) {
+    console.error('Error fetching task: ', error);
+   }
   };
 
-  return (
-    <div className="container">
-      <h1 className="edit-task-title">Edit Task</h1>
-      <form onSubmit={handleSubmit} className="edit-task-form">
-        <div className="form-group">
-          <label htmlFor="title" className="form-label">
-            Title:
-          </label>
-          <input
-            type="text"
-            id="title"
-            className="form-input"
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="description" className="form-label">
-            Description:
-          </label>
-          <textarea
-            id="description"
-            className="form-textarea"
-            value={newDescription}
-            onChange={(e) => setNewDescription(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="edit-task-btn">
-          Update Task
-        </button>
-      </form>
+  fetchTask();
+ }, [taskId]);
+
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!title || !description) {
+   alert('Title and description are required.');
+   return;
+  }
+
+  try {
+   const res = await fetch('http://localhost:3000/api/topics', {
+    method: 'PUT',
+    headers: {
+     'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ id: taskId, title, description }),
+   });
+
+   if (res.ok) {
+    // Jika berhasil memperbarui, arahkan pengguna ke halaman todos
+    router.push('/todos');
+   } else {
+    throw new Error('Failed to update task');
+   }
+  } catch (error) {
+   console.log('Error updating task: ', error);
+   alert('Failed to update task. Please try again.');
+  }
+ };
+
+ const home = () => {
+  router.push('/todos'); // Navigate to '/todos' page when Back button is clicked
+ };
+
+ return (
+  <div className="container_edit">
+   <div className="box_edit">
+    <button className="btn_edit" onClick={home} style={{ fontSize: '20px' }}>
+     <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '20px' }} />
+    </button>
+    <h1 className="task-title_edit">EDIT TASK</h1>
+   </div>
+   <form onSubmit={handleSubmit} className="task-form_edit">
+    <div className="form-group_edit">
+     <label htmlFor="title" className="form-label_edit">Title :</label>
+     <input
+      type="text"
+      id="title"
+      className="form-input_edit"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
+      required
+     />
     </div>
-  );
+    <div className="form-group_edit">
+     <label htmlFor="description" className="form-label_edit">Description :</label>
+     <textarea
+      id="description"
+      className="form-textarea_edit"
+      value={description}
+      onChange={(e) => setDescription(e.target.value)}
+      required
+     />
+    </div>
+    <button type="submit" className="task-btn_edit">EDIT</button>
+   </form>
+  </div>
+ );
 };
 
-export default EditTopicForm;
+export default EditTaskPage;
 

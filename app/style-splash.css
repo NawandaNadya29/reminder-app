@@ -1,15 +1,18 @@
+body{
+  background-color: #E7D0D0;
+}
+
 .splash-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #E7D0D0; /* Sesuaikan dengan warna latar belakang yang diinginkan */
   }
   
   .splash-image {
-    width: 200px; /* Atur lebar gambar */
-    height: auto; /* Tinggi akan disesuaikan secara otomatis */
+    width: 200px;
+    height: auto; 
     margin-top: 1px;
   }
   
@@ -40,7 +43,7 @@
     padding: 10px 20px;
     font-size: 1rem;
     color: #fff;
-    background-color: #D38181; /* Sesuaikan dengan warna tombol yang diinginkan */
+    background-color: #D38181; 
     border: none;
     border-radius: 5px;
     text-decoration: none;

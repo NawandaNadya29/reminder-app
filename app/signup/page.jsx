@@ -5,7 +5,7 @@ import { auth } from '@/app/firebase/config';
 import Link from 'next/link';
 import '@/app/signup/style-signup.css';
 
-// Import Font Awesome
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 

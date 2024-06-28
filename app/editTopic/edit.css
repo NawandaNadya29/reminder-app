@@ -1,55 +1,82 @@
-.container {
-    max-width: 600px;
+body{
+  background-color: #E7D0D0;
+}
+.container_edit {
+    /* max-width: 600px; */
     margin: 0 auto;
     padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    /* background-color: #fff; */
+    /* border-radius: 8px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  }
+
+  .box_edit {
+    padding: 0 2% 0 2%;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    background-color: transparent;
   }
   
-  .edit-task-title {
-    font-size: 24px;
+  .task-title_edit {
+    font-size: 2rem;
+    color: #000;
     margin-bottom: 20px;
+    text-align: center;
+    margin: 0 auto;
+    flex-grow: 1;
   }
   
-  .edit-task-form {
+  .task-form_edit {
+    margin-top: 3%;
     display: flex;
     flex-direction: column;
   }
-  
-  .form-group {
-    margin-bottom: 20px;
+
+  @media (max-width: 768px) { 
+    .box_edit{
+      background-color: #DB8585;
+    }
+    .task-form_edit {
+      margin-top: 10%; 
+    }
   }
   
-  .form-label {
+  .form-group_edit {
+    margin-bottom: 15px;
+  }
+  
+  .form-label_edit {
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
   }
   
-  .form-input,
-  .form-textarea {
+  .form-input_edit,
+  .form-textarea_edit {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 20px;
   }
   
-  .form-textarea {
-    min-height: 150px;
+  .form-textarea_edit {
+    resize: vertical;
+    min-height: 100px;
   }
   
-  .edit-task-btn {
-    background-color: #007bff;
-    color: white;
+  .task-btn_edit {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #DB8585;
     border: none;
-    padding: 12px 20px;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    width: 50%;
+    margin: auto;
   }
   
-  .edit-task-btn:hover {
-    background-color: #0056b3;
+  .task-btn_edit:hover {
+    background-color: rgb(195, 123, 123);
   }
-  

@@ -16,3 +16,4 @@ export async function GET(request, { params }) {
   const topic = await Topic.findOne({ _id: id });
   return NextResponse.json({ topic }, { status: 200 });
 }
+

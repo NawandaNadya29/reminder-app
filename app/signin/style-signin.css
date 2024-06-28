@@ -1,5 +1,5 @@
 .signin-container {
-    background-color: #E7D0D0; /* Contoh warna latar belakang putih */
+    background-color: #E7D0D0; 
     height: 100vh;
 }
   
@@ -10,13 +10,13 @@
 }
 .logo-container {
     display: flex;
-    align-items: center; /* Mengatur posisi horizontal ke tengah */
-    justify-content: center; /* Mengatur posisi vertikal ke tengah */
+    align-items: center; 
+    justify-content: center; 
 }
   
 .logo-image {
-    width: 200px; /* Atur lebar gambar */
-    height: auto; /* Tinggi akan disesuaikan secara otomatis */
+    width: 200px; 
+    height: auto; 
     margin-top: 100px;
 }  
 
@@ -94,7 +94,7 @@
 
 .forgot-password-link{
     margin-top: 2px;
-    font-size: 0.875rem; /* Small text */
+    font-size: 0.875rem; 
     color: #E83E3E;
     text-align: right;
 }
@@ -105,5 +105,5 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #6b5757; /* Sesuaikan warna ikon dengan desain Anda */
+    color: #6b5757; 
   }

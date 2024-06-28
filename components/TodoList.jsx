@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { auth } from '@/app/firebase/config';
 import '@/app/todos/todo-list.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import RemoveBtn from "@/components/RemoveBtn";
+import { faTrash, faCheck, faPlus, faEdit,} from '@fortawesome/free-solid-svg-icons';
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
@@ -28,45 +29,33 @@ const TodoList = () => {
 
     fetchTasks();
   }, []);
+  
 
-  const handleEdit = () => {
-    // Implement edit functionality (e.g., navigate to edit page)
-    router.push('/editTopic/');
+  const handleEdit = (id) => {
+    router.push(`/editTopic?id=${id}`); 
   };
     
-  const handleDelete = async (id) => {
-    const confirmed = confirm("Are you sure?");
-  
-      if (confirmed) {
-        const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
-          method: "DELETE",
-        });
-  
-        if (res.ok) {
-          router.refresh();
-        }
-      }
-    };
-
-  // const handleDelete = async (id) => {
-  //   try {
-  //     const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
-  //       method: 'DELETE',
-  //     });
-  //     if (res.ok) {
-  //       setTasks(tasks.filter(task => task._id !== id)); // Update tasks state after deletion
-  //     } else {
-  //       throw new Error('Failed to delete task');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error deleting task: ', error);
-  //   }
-  // };
-
   const handleComplete = async (id) => {
-    // Implement complete functionality
-    // This could involve updating the task status in MongoDB
+    try {
+      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ completed: true }), // Example: Sending task status as completed
+      });
+
+      if (res.ok) {
+        console.log(`Task ${id} marked as completed.`);
+        fetchTasks(); // Reload tasks after successfully marking as completed
+      } else {
+        throw new Error('Failed to mark task as completed.');
+      }
+    } catch (error) {
+      console.error('Error marking task as completed:', error);
+    }
   };
+  
 
   const handleAdd = () => {
     router.push('/addtopics'); // Navigate to '/addtopics' page when Add button is clicked
@@ -81,6 +70,23 @@ const TodoList = () => {
     }
   };
 
+  // const handleDelete = async (id) => {
+  //   try {
+  //     const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+  //       method: 'DELETE',
+  //     });
+
+  //     if (res.ok) {
+  //       // Remove the deleted task from the state
+  //       setTasks(tasks.filter(task => task._id !== id));
+  //     } else {
+  //       throw new Error('Failed to delete task');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error deleting task: ', error);
+  //   }
+  // };
+
   return (
     <div className="container">
       <div className="logo">
@@ -89,6 +95,7 @@ const TodoList = () => {
       <div className="logout">
         <button className="logout-btn" onClick={handleLogout}>Log Out</button>
       </div>
+      
       <div className="completed-btn-container">
         <button className="completed-btn">Completed</button>
       </div>
@@ -103,7 +110,7 @@ const TodoList = () => {
               <button onClick={() => handleEdit(task._id)}>
                 <FontAwesomeIcon icon={faEdit} />
               </button>
-              <button onClick={handleDelete}>
+              <button onClick={() => RemoveBtn(task._id)}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>
               <button onClick={() => handleComplete(task._id)}>

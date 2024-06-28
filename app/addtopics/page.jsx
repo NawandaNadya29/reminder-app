@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import '@/app/addtopics/add.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const AddTaskPage = () => {
   const [title, setTitle] = useState('');
@@ -27,7 +29,6 @@ const AddTaskPage = () => {
       });
 
       if (res.ok) {
-        // Jika berhasil menambahkan, arahkan pengguna ke halaman todos
         router.push('/todos');
       } else {
         throw new Error('Failed to create a task');
@@ -38,32 +39,41 @@ const AddTaskPage = () => {
     }
   };
 
+  const home = () => {
+    router.push('/todos'); 
+  };
+
   return (
-    <div className="container">
-      <h1 className="add-task-title">Add New Task</h1>
-      <form onSubmit={handleSubmit} className="add-task-form">
-        <div className="form-group">
-          <label htmlFor="title" className="form-label">Title:</label>
+    <div className="container_add">
+      <div className="box_add">
+        <button className="add-btn_add" onClick={home} style={{ fontSize: '20px' }}>
+          <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '20px' }} />
+        </button>
+        <h1 className="add-task-title_add">ADD TASK</h1>
+      </div>
+      <form onSubmit={handleSubmit} className="add-task-form_add">
+        <div className="form-group_add">
+          <label htmlFor="title" className="form-label_add">Title :</label>
           <input
             type="text"
             id="title"
-            className="form-input"
+            className="form-input_add"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="description" className="form-label">Description:</label>
+        <div className="form-group_add">
+          <label htmlFor="description" className="form-label_add">Description :</label>
           <textarea
             id="description"
-            className="form-textarea"
+            className="form-textarea_add"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
-        <button type="submit" className="add-task-btn">Add Task</button>
+        <button type="submit" className="add-task-btn_add">ADD</button>
       </form>
     </div>
   );

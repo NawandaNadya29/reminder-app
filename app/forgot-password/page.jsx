@@ -1,7 +1,4 @@
 'use client'; 
-
-// pages/forgot-password.js
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Corrected import
 import { auth } from '@/app/firebase/config';

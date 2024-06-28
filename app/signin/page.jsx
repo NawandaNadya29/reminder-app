@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '@/app/firebase/config';
-import { useRouter } from 'next/navigation'; // Import from 'next/navigation' for Next.js 13+ with app directory
-import '@/app/signin/style-signin.css'; // Import CSS untuk SignIn
+import { useRouter } from 'next/navigation'; 
+import '@/app/signin/style-signin.css'; 
 import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +20,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (user) {
-      router.push('/todos'); // Redirect to home page after successful sign-in
+      router.push('/todos'); 
     }
   }, [user, router]);
 
